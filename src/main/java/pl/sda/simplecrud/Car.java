@@ -12,13 +12,14 @@ public class Car {
     private String model;
     private String vin;
 
-    @Enumerated
-    private Colour colour; //fixMe :)
+    @Enumerated(EnumType.STRING)
+    private Colour colour;
 
     public Car() {
     }
 
     public Car(String model, String vin, Colour colour) {
+        super();
         this.model = model;
         this.vin = vin;
         this.colour = colour;
@@ -31,5 +32,9 @@ public class Car {
         car.vin = carDTO.getVin();
         car.id = carDTO.getId();
         return car;
+    }
+
+    public CarDTO toDTO(){
+        return new CarDTO(id, model, vin, colour.name());
     }
 }

@@ -2,8 +2,8 @@ package pl.sda.simplecrud;
 
 public enum Colour {
     RED("czerwony"),
-    WHITE("biały"),
     BLACK("czarny"),
+    WHITE("biały"),
     GREEN("zielony");
 
     private String plName;
