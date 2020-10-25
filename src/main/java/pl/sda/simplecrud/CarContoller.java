@@ -33,6 +33,9 @@ public class CarContoller {
         return carService.findCarByVin(vin);
     }
 
-
+    @PutMapping("/{id}")
+    public CarDTO updateCar(@PathVariable Integer id, @RequestBody CarDTO carDTO){
+        return carService.updateCar(carDTO);
+    }
 
 }

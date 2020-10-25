@@ -37,4 +37,10 @@ public class Car {
     public CarDTO toDTO(){
         return new CarDTO(id, model, vin, colour.name());
     }
+
+    public void update(CarDTO carDTO){
+        this.vin= carDTO.getVin();
+        this.model=carDTO.getModel();
+        this.colour=Colour.valueOf(carDTO.getColour());
+    }
 }

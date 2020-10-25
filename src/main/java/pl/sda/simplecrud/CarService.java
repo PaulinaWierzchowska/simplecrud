@@ -48,7 +48,10 @@ public class CarService {
                 .orElseThrow(() -> new RuntimeException(message));
     }
 
-    /*private CarDTO updateCar(CarDTO carDTO){
-
-    }*/
+    public CarDTO updateCar(CarDTO carDTO){
+        Optional<Car> carOptional = carRepository.findById(carDTO.getId());
+        Car car = carOptional.orElseThrow(()-> new RuntimeException("Nie znaleziono samochodu"));
+        car.update(carDTO);
+        return carRepository.save(car).toDTO();
+    }
 }
